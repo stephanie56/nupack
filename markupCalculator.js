@@ -21,9 +21,20 @@ function markupCalculator (basePrice, numOfWorker, field) {
 	var addonRate;
 
 	// Without exception, there is a flat markup on all jobs of 5%
-	var flatMarkup = roundNum(price * (100 + flatRate) / 100);
+	var flatMarkup = roundNum(basePrice * (100 + flatRate) / 100);
 	// For each person that needs to work on the job, there is a markup of 1.2%
-	var result = roundNum(flatMarkup * numOfWorker * (100 + labourRate) / 100);
+	var labourMarkup = roundNum(flatMarkup * numOfWorker * (100 + labourRate) / 100);
+
+  // If pharmaceuticals are involved, there is an immediate 7.5% markup
+	// For food, there is a 13% markup
+	// Electronics require a 2% markup
+	// Everything else, there is no markup
+	if (field === "drugs"){ addonRate = 7.5; }
+	else if (field === "food"){ addonRate = 13; }
+	else if (field === "electronics"){ addonRate = 2; }
+	else { addonRate = 0; }
+
+  var result = roundNum(labourMarkup * (100 + addonRate) / 100);
 
 	console.log(result);
 };
@@ -32,4 +43,4 @@ function roundNum (num){
 	 return num = Number(num.toFixed(2));
 }
 
-calculator(basePrice, numOfWorker, field);
+markupCalculator(basePrice, numOfWorker, field);
