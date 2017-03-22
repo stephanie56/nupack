@@ -6,7 +6,7 @@ module.exports = function (basePrice, numOfWorker, field) {
 	var addonRate;
 
 	// Without exception, there is a flat markup on all jobs of 5%
-	var flatMarkup = roundNum(basePrice * flatRate); // checked
+	var flatMarkup = roundNum(Number(basePrice) * flatRate); // checked
   	var baseCost = basePrice + flatMarkup;
 
   // If pharmaceuticals are involved, there is an immediate 7.5% markup
@@ -19,7 +19,7 @@ module.exports = function (basePrice, numOfWorker, field) {
 	else { addonRate = 0; }
 
 	var addOnMarkup = roundNum(baseCost * addonRate);
-  	var labourMarkup = roundNum(baseCost * labourRate * numOfWorker);
+  	var labourMarkup = roundNum(baseCost * labourRate * Num(numOfWorker));
   	var result = roundNum(baseCost + addOnMarkup + labourMarkup);
 
 	function roundNum (num){
