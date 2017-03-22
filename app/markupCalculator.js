@@ -1,10 +1,6 @@
 /** Markup Calculator **/
 
-var basePrice = Number(process.argv[2]);
-var numOfWorker = Number(process.argv[3]);
-var field = process.argv[4];
-
-function markupCalculator (basePrice, numOfWorker, field) {
+module.exports = function (basePrice, numOfWorker, field) {
 	var flatRate = 0.05;
   var labourRate = 0.012;
 	var addonRate;
@@ -24,11 +20,12 @@ function markupCalculator (basePrice, numOfWorker, field) {
 	// For each person that needs to work on the job, there is a markup of 1.2%
 	var result = roundNum((basePrice + flatMarkup) * (1 + numOfWorker * labourRate * addonRate));
 
+	function roundNum (num){
+		 return num = Number(num.toFixed(2));
+	};
+
+	return result;
+
+	// print result
 	console.log(result);
 };
-
-function roundNum (num){
-	 return num = Number(num.toFixed(2));
-};
-
-markupCalculator(basePrice, numOfWorker, field);
