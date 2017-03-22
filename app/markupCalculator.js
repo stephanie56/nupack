@@ -8,7 +8,7 @@ module.exports = function (basePrice, numOfWorker, field) {
 	var numOfWorker = Number(numOfWorker);
 	
 	// if basePrice and numOfWorker are strings, return err;
-	if(basePrice === NaN || numberOfWorker === NaN){
+	if(basePrice === NaN || numOfWorker === NaN){
 		console.log("Incorrect usage.");
 		return; 
 	}
