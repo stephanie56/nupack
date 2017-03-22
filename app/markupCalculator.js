@@ -4,7 +4,14 @@ module.exports = function (basePrice, numOfWorker, field) {
 	var flatRate = 0.05;
   	var labourRate = 0.012;
 	var addonRate;
-
+	var basePrice = Number(basePrice);
+	var numOfWorker = Number(numOfWorker);
+	
+	// if basePrice and numOfWorker are strings, return err;
+	if(basePrice === NaN || numberOfWorker === NaN){
+		console.log("Incorrect usage.");
+		return; 
+	}
 	// Without exception, there is a flat markup on all jobs of 5%
 	var flatMarkup = roundNum(Number(basePrice) * flatRate); // checked
   	var baseCost = basePrice + flatMarkup;
@@ -19,7 +26,7 @@ module.exports = function (basePrice, numOfWorker, field) {
 	else { addonRate = 0; }
 
 	var addOnMarkup = roundNum(baseCost * addonRate);
-  	var labourMarkup = roundNum(baseCost * labourRate * Num(numOfWorker));
+  	var labourMarkup = roundNum(baseCost * labourRate * Number(numOfWorker));
   	var result = roundNum(baseCost + addOnMarkup + labourMarkup);
 
 	function roundNum (num){
