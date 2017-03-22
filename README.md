@@ -1,6 +1,5 @@
 NuPack
 ===============
 - runtime version: node v7.7.1
-- run `npm install node`
-- run `npm install`
-- usage: node markupCalculator.js [basePrice] [numOfWorker] [field]
+- Install node: run `npm install node`
+- Run test: run `node ./test/calculatorTest.js` 
