@@ -9,7 +9,7 @@ Markups are also added depending on the types of materials involved:
 
 * If pharmaceuticals are involved, there is an immediate 7.5% markup
 * For food, there is a 13% markup
-* Electronics require a 2% markup
+* Electronics require a 2% markup1299.99
 * Everything else, there is no markup
 
 Another system calculates the base price depending on how many products need to be repackaged. As such, the markup calculator should accept the initial base price along with the different categories of markups and calculate a final cost for a project.
