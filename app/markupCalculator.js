@@ -29,6 +29,6 @@ function markupCalculator (basePrice, numOfWorker, field) {
 
 function roundNum (num){
 	 return num = Number(num.toFixed(2));
-}
+};
 
 markupCalculator(basePrice, numOfWorker, field);
